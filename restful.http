@@ -1,0 +1,119 @@
+@BASE_URL = http://localhost:3000
+###
+GET {{BASE_URL}}/api/users
+###
+GET {{BASE_URL}}
+###
+POST {{BASE_URL}}/api/users
+Content-Type: application/json
+
+{
+    "email":"dilancil1@hotmail.com",
+    "password":"111"
+}
+
+###
+
+POST {{BASE_URL}}/api/users/login
+Content-Type: application/json
+
+{
+    "email":"dilancil1@hotmail.com",
+    "password":"111"
+
+}
+###
+DELETE {{BASE_URL}}/api/users/62406189f78ae1e4984651a
+###
+PATCH {{BASE_URL}}/api/users/62534dea134052b8d4b6ea2c
+Content-Type: application/json
+
+{
+
+    "password":"19935",
+    "name":"aysen",
+    "surname":"deniz"
+}
+###
+GET {{BASE_URL}}/api/users/624b1639e0c25b5186f77c0e
+
+###
+POST {{BASE_URL}}/api/dietitians
+Content-Type: application/json
+
+{
+    "email":"kerim@hotmail.com",
+    "password":"1451"
+}
+
+###
+
+POST {{BASE_URL}}/api/dietitians/login
+Content-Type: application/json
+
+{
+     "email":"kerim@hotmail.com",
+    "password":"111"
+}
+###
+GET {{BASE_URL}}/api/foods/yumurta
+###
+GET {{BASE_URL}}/api/users/6252da6e1e7176d9131c3efe
+###
+
+POST {{BASE_URL}}/api/foods
+Content-Type: application/json
+
+{
+    "name":"yumurta",
+    "quantity":"1 adet",
+    "calorie":"6"
+}
+###
+
+PATCH {{BASE_URL}}/api/dietLists/myList
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NDk3OTMyMjIsImV4cCI6MTY0OTc5NjgyMn0.GZ1C_05G2eJbsVjt1XC-TcDDEEdm3JIO-K9j4HlD0K8
+
+
+{
+
+    "Monday_breakfast":"eggy",
+    "dietitian":"6255cc22fda5e8744188b700"
+
+}
+
+###
+
+GET {{BASE_URL}}/api/users/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUzNGRlYTEzNDA1MmI4ZDRiNmVhMmMiLCJpYXQiOjE2NDk3NjkxMDMsImV4cCI6MTY0OTc3MjcwM30.WefPLY29vgXFsvXbRnlJcl5_Lg32TwiTJ-K1Lttca-c
+
+###
+GET {{BASE_URL}}/api/dietLists/myList
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NDk3ODg0ODMsImV4cCI6MTY0OTc5MjA4M30.9D__n16NipfZhi_xTrGWr4vTeNmIE_V3Ob9t-FU-Isc
+
+###
+
+GET {{BASE_URL}}/api/dietitians/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1Y2MyMmZkYTVlODc0NDE4OGI3MDAiLCJlbWFpbCI6ImtlcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQ5ODU5MDk3LCJleHAiOjE2NDk4NjI2OTd9.-NikC-oA1J8bwuNYtKyZWpYSDzs4bWNZqcLdFtRtPrM
+
+###
+PATCH {{BASE_URL}}/api/users/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NDk3OTc2MDAsImV4cCI6MTY0OTgwMTIwMH0.yRUH8ZeGgJv5H3isOaX5CUPLAIgZir0bI4f_Z4bYQSs
+
+{
+    
+    "dietitian":"6255cc22fda5e8744188b700"
+
+}
+
+
+###
+
+GET {{BASE_URL}}/api/users/myUsers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1Y2MyMmZkYTVlODc0NDE4OGI3MDAiLCJlbWFpbCI6ImtlcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQ5Nzk4MjMyLCJleHAiOjE2NDk4MDE4MzJ9.9_DLr9nZy8R7OoQZAEY-38LHrA4TTy-Zd9kF76wCXi4
