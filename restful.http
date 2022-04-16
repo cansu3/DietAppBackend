@@ -1,4 +1,4 @@
-@BASE_URL = http://localhost:5000
+@BASE_URL = http://10.0.2.2:5000
 ###
 GET {{BASE_URL}}/api/users
 ###
@@ -87,7 +87,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 
 GET {{BASE_URL}}/api/users/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUzNGRlYTEzNDA1MmI4ZDRiNmVhMmMiLCJpYXQiOjE2NDk3NjkxMDMsImV4cCI6MTY0OTc3MjcwM30.WefPLY29vgXFsvXbRnlJcl5_Lg32TwiTJ-K1Lttca-c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NTAxMzg1MzksImV4cCI6MTY1MDE0MjEzOX0.VKwvfIVj4Em1zY_E9aL_UY3NW2NHboa_W_fZDQsS76E
 
 ###
 GET {{BASE_URL}}/api/dietLists/myList

@@ -4,7 +4,7 @@ const food = require('../model/foodModel');
 router.get('/:name', async (req,res) => {
 
     try {
-     const findFood = await food.find({name : req.params.name});
+     const findFood = await food.findOne({name : req.params.name});
      res.json(findFood);
         
     } catch (error) {
