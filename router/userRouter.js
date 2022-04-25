@@ -5,80 +5,30 @@ const DietList = require('../model/dietListModel');
 const bcrypt = require('bcrypt');
 const authMiddleware = require('../middleware/authMiddleware');
 const authDietitianMiddleware = require('../middleware/authDietitianMiddleware');
+const userController= require('../controller/userController');
 
-router.get('/', async (req,res) => {
+router.get('/',userController.getAllUsers);
 
-   try {
-    const allUsers = await User.find({});
-    res.json(allUsers);
-       
-   } catch (error) {
-    console.log("Error occurred while finding users:"+error);   
-       
-   }
-   
-});
+//router.get('/:id', userController.getUser);
 
-//router.get('/:id', async (req,res) => {
+ router.get('/me', authMiddleware, userController.getMyProfileInfo);
 
-   // try {
-   //  const findUser = await User.find({_id : req.params.id});
-    // res.json(findUser);
-        
-    //} catch (error) {
-     //console.log("Error occurred while finding user:"+error);   
-        
-    //}
-    
- //});
+ router.patch('/me', authMiddleware, userController.updateMyProfile);
 
- router.get('/me', authMiddleware, (req,res,next) => {
-     res.json(req.user);
-
-    
- });
-
- router.get('/myUsers', authDietitianMiddleware, async (req,res,next) => {
+router.post('/:username/requestDietPlan',authMiddleware, async (req,res,next) => {
     
     try {
-        allUsers = await UserProfile.find({dietitian:req.dietitian._id});
-          res.json(allUsers);
-          
-           
-       } catch (error) {
-        console.log("Error occurred while finding users:",error);   
-           
-       }
-       
-   
-});
+        const user = await User.login(req.body.email,req.body.password);
+        const token = await user.generateToken();
+        res.json({
+            user:user,
+            token:token});
 
-
- router.patch('/me', authMiddleware, async (req,res,next) => {
-    
-    if (req.body.hasOwnProperty('password')) {
-        req.body.password = await bcrypt.hash(req.body.password,5);
-        
-    } 
-    const {error,value}=User.joiValidationforUpdate(req.body);
-    if (error) {
+    } catch (error) {
         next(error);
-        
-    } else {
-        try {
-        const result = await User.findByIdAndUpdate({_id : req.user._id},req.body,{new:true});
-        if (result) {
-            return res.json( {message: "User updated"});
-        } else {
-            return res.status().json({message: "User could not updated"});
-        }
-        } catch (error) {
-            next(error);
-            console.log("Error occurred while updating user:"+error);
-        }
+        console.log("Error occurred while login:"+error);   
     }
-
-   
+    
 });
 
 

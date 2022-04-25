@@ -1,4 +1,4 @@
-@BASE_URL = http://10.0.2.2:5000
+@BASE_URL = http://localhost:5000
 ###
 GET {{BASE_URL}}/api/users
 ###
@@ -7,8 +7,8 @@ GET {{BASE_URL}}
 POST {{BASE_URL}}/api/users
 Content-Type: application/json
 
-{
-    "email":"dilancil1@hotmail.com",
+{     "username":"cccd",
+    "email":"dil1@hotmail.com",
     "password":"111"
 }
 
@@ -41,8 +41,8 @@ GET {{BASE_URL}}/api/users/624b1639e0c25b5186f77c0e
 POST {{BASE_URL}}/api/dietitians
 Content-Type: application/json
 
-{
-    "email":"kerim@hotmail.com",
+{    "username":"kerimn@hotmail.com",
+    "email":"kerimn@hotmail.com",
     "password":"1451"
 }
 
@@ -87,7 +87,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 
 GET {{BASE_URL}}/api/users/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NTAxMzg1MzksImV4cCI6MTY1MDE0MjEzOX0.VKwvfIVj4Em1zY_E9aL_UY3NW2NHboa_W_fZDQsS76E
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NTA4MjIzMDksImV4cCI6MTY1MDgyNTkwOX0.Yjovp35pBFNJBHSbSf61lNy9_yZiuAqbD-RSGAwCNhU
 
 ###
 GET {{BASE_URL}}/api/dietLists/myList
@@ -98,7 +98,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 
 GET {{BASE_URL}}/api/dietitians/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1Y2MyMmZkYTVlODc0NDE4OGI3MDAiLCJlbWFpbCI6ImtlcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQ5ODU5MDk3LCJleHAiOjE2NDk4NjI2OTd9.-NikC-oA1J8bwuNYtKyZWpYSDzs4bWNZqcLdFtRtPrM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1Y2MyMmZkYTVlODc0NDE4OGI3MDAiLCJlbWFpbCI6ImtlcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwNTc2ODMxLCJleHAiOjE2NTA1ODA0MzF9.SWZRGQzcV2du0TKiOmPjWCjtMU2XhBryDjpbqkHvnMw
 
 ###
 PATCH {{BASE_URL}}/api/users/me
@@ -117,3 +117,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 GET {{BASE_URL}}/api/users/myUsers
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1Y2MyMmZkYTVlODc0NDE4OGI3MDAiLCJlbWFpbCI6ImtlcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQ5Nzk4MjMyLCJleHAiOjE2NDk4MDE4MzJ9.9_DLr9nZy8R7OoQZAEY-38LHrA4TTy-Zd9kF76wCXi4
+
+###
+
+POST {{BASE_URL}}/api/weights
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NTA2Mzc2NzcsImV4cCI6MTY1MDY0MTI3N30.hHjsTwfhrDA9p4vn_v40s05cfeO5ZqYcd1kHwe0Pvl4
+
+{
+    "weight":"630"
+}
+###
+GET {{BASE_URL}}/api/weights
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NTA1NjYxNjMsImV4cCI6MTY1MDU2OTc2M30.DY4l5I_rxIp4LHY21NlQfO9VFRyWuUVCGmPmarTIDqI
+
+###
