@@ -1,11 +1,11 @@
 const boolean = require('@hapi/joi/lib/types/boolean');
 const mongoose = require('mongoose');
-const userProfile = require('../model/userProfileModel');
+const user = require('../model/userModel');
 
 const WeightSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'userProfile'
+    ref: 'user'
   },
   weight: {
     type: String,

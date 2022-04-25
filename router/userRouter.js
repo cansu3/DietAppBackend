@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const User = require('../model/userModel');
-const UserProfile = require('../model/userProfileModel');
 const DietList = require('../model/dietListModel');
 const bcrypt = require('bcrypt');
 const authMiddleware = require('../middleware/authMiddleware');

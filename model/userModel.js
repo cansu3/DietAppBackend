@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const Joi = require('@hapi/joi');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const userProfile = require('../model/userProfileModel');
 const DietList = require('../model/dietListModel');
 
 const UserSchema = new Schema(
@@ -24,26 +23,70 @@ const UserSchema = new Schema(
         type: String,
         required: true
       },
+      gender: {
+        type: String,
+        enum: ['male', 'female']
+      },
+      name: {
+        type: String,
+      },
+      surname: {
+        type: String,
+      },
+      birthday: {
+        type: Date,
+      },
+      height: {
+        type: Number,
+      },
+      weight: {
+        type: String,
+      },
+      illness: {
+        type:String,
+      },
+      medicine: {
+        type:String,
+      },
+      photo : {
+        type : Object,
+      }
   }
 );
 
-const schema = Joi.object({
+const schema2 = Joi.object({
   username : Joi.string(),
   email : Joi.string().email(),
   password : Joi.string(),
 });
 
+const schema1 = Joi.object({
+  username : Joi.string(),
+  email : Joi.string().email(),
+  password : Joi.string(),
+  gender : Joi.string(),
+  name : Joi.string(),
+  surname : Joi.string(),
+  height : Joi.string(),
+  weight : Joi.string(),
+  medicine : Joi.string(),
+  illness : Joi.string(),
+  photo : Joi.object(),
+
+
+});
+
 UserSchema.methods.generateToken = async function () {
   
   const loggedInUser = this;
-  const token = await jwt.sign({_id:loggedInUser._id},'secretkey',{expiresIn:'1h'});
+  const token = await jwt.sign({_id:loggedInUser._id},'secretkey',{expiresIn:'5h'});
   return token;
 
 }
 
 UserSchema.statics.login = async function(email,password) {
 
-  const {error,value} = schema.validate({email,password});
+  const {error,value} = schema2.validate({email,password});
   if (error) {
     throw new Error(error);
     
@@ -60,22 +103,14 @@ UserSchema.statics.login = async function(email,password) {
     return user;
 }
 
-
-UserSchema.methods.joiValidation = function (userObject) {
-  schema.required();
-return schema.validate(userObject);
+UserSchema.methods.joiValidation = function (userObject) { schema2.required();
+return schema2.validate(userObject);
 }
 
 UserSchema.statics.joiValidationforUpdate = function (userObject) {
-  return schema.validate(userObject);
+  return schema1.validate(userObject);
   }
 
-
- UserSchema.post('save', async function (doc) {
-   
-   userProfile.create({ _id: doc._id });
-   await userProfile.findByIdAndUpdate({_id: doc._id},{username : doc.username},{new:true})
-  });
 
   UserSchema.post('save', async function (doc) {
     await DietList.create({ _id: doc._id });

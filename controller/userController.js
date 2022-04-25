@@ -1,5 +1,4 @@
 const User = require('../model/userModel');
-const UserProfile = require('../model/userProfileModel');
 const DietList = require('../model/dietListModel');
 const bcrypt = require('bcrypt');
 
@@ -31,7 +30,7 @@ const getUser =  async (req,res) => {
 
 const getMyProfileInfo = async (req,res,next) => {
 
-    const findUser = await UserProfile.findById({_id : req.user._id});
+    const findUser = await User.findById({_id : req.user._id});
      res.json(findUser);
 
     
@@ -49,7 +48,7 @@ const getMyProfileInfo = async (req,res,next) => {
         
     } else {
         try {
-        const result = await UserProfile.findByIdAndUpdate({_id : req.user._id},req.body,{new:true});
+        const result = await User.findByIdAndUpdate({_id : req.user._id},req.body,{new:true});
         if (result) {
             return res.json( {message: "User updated"});
         } else {

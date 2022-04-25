@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const Joi = require('@hapi/joi');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const dietitianProfile = require('../model/dietitianProfileModel');
 
 const DietitianSchema = new Schema(
     { 
@@ -23,26 +22,60 @@ const DietitianSchema = new Schema(
         type: String,
         required: true
       },
+      bio: {
+        type: String,
+        trim: true,
+      },
+      gender: {
+        type: String,
+        enum: ['male', 'female'],
+      },
+      name: {
+        type: String,
+      },
+      surname: {
+        type: String,
+      },
+      birthday: {
+        type: Date,
+        select: false,
+      },
+      photo : {
+        type : Object,
+      }
     }
 );
 
-const schema = Joi.object({
+const schema2 = Joi.object({
   username : Joi.string(),
   email : Joi.string().email(),
   password : Joi.string(),
 });
 
+const schema1 = Joi.object({
+  username : Joi.string(),
+  email : Joi.string().email(),
+  password : Joi.string(),
+  bio : Joi.string(),
+  gender : Joi.string(),
+  name : Joi.string(),
+  surname : Joi.string(),
+  birthday : Joi.string(),
+  photo : Joi.object(),
+
+});
+
 DietitianSchema.methods.generateToken = async function () {
   
   const loggedInDietitian = this;
-  const token = await jwt.sign({_id:loggedInDietitian._id,email:loggedInDietitian.email},'secretkey',{expiresIn:'1h'});
+  const token = await jwt.sign({_id:loggedInDietitian._id,email:loggedInDietitian.email},'secretkey',{expiresIn:'5h'});
   return token;
 
 }
 
 DietitianSchema.statics.login = async function(email,password) {
 
-  const {error,value} = schema.validate({email,password});
+  const {error,value} = schema2.validate({email,password});
   if (error) {
     throw new Error(error);
     
@@ -61,19 +94,13 @@ DietitianSchema.statics.login = async function(email,password) {
 
 
 DietitianSchema.methods.joiValidation = function (dietitianObject) {
-  schema.required();
-return schema.validate(dietitianObject);
+  schema2.required();
+return schema2.validate(dietitianObject);
 }
 
 DietitianSchema.statics.joiValidationforUpdate = function (dietitianObject) {
-  return schema.validate(dietitianObject);
-  }
-
-  DietitianSchema.post('save', async function (doc) {
-   
-    dietitianProfile.create({ _id: doc._id });
-    await dietitianProfile.findByIdAndUpdate({_id: doc._id},{username : doc.username},{new:true})
-   });
+  return schema1.validate(dietitianObject);
+  };
  
 
 const Dietitian = mongoose.model('Dietitian',DietitianSchema);
