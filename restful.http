@@ -7,8 +7,8 @@ GET {{BASE_URL}}
 POST {{BASE_URL}}/api/users
 Content-Type: application/json
 
-{     "username":"cccd",
-    "email":"dil1@hotmail.com",
+{     "username":"elfif",
+    "email":"delfif@hotmail.com",
     "password":"111"
 }
 
@@ -18,7 +18,7 @@ POST {{BASE_URL}}/api/users/login
 Content-Type: application/json
 
 {
-    "email":"dilancil1@hotmail.com",
+    "email":"delif@hotmail.com",
     "password":"111"
 
 }
@@ -41,8 +41,8 @@ GET {{BASE_URL}}/api/users/624b1639e0c25b5186f77c0e
 POST {{BASE_URL}}/api/dietitians
 Content-Type: application/json
 
-{    "username":"kerimn@hotmail.com",
-    "email":"kerimn@hotmail.com",
+{   "username": "eee",
+    "email":"kerifgmmmn@hotmail.com",
     "password":"1451"
 }
 
@@ -52,8 +52,8 @@ POST {{BASE_URL}}/api/dietitians/login
 Content-Type: application/json
 
 {
-     "email":"kerim@hotmail.com",
-    "password":"111"
+     "email":"kerifgmmmn@hotmail.com",
+    "password":"1451"
 }
 ###
 GET {{BASE_URL}}/api/foods/yumurta
@@ -87,7 +87,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 
 GET {{BASE_URL}}/api/users/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NTA4MjIzMDksImV4cCI6MTY1MDgyNTkwOX0.Yjovp35pBFNJBHSbSf61lNy9_yZiuAqbD-RSGAwCNhU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTA5MDQ2MTYsImV4cCI6MTY1MDkwODIxNn0.4pmHz8kxOqNWsaOApvIoKfnjJNPHNs820DLrMK6r71o
 
 ###
 GET {{BASE_URL}}/api/dietLists/myList
@@ -98,16 +98,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 
 GET {{BASE_URL}}/api/dietitians/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1Y2MyMmZkYTVlODc0NDE4OGI3MDAiLCJlbWFpbCI6ImtlcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwNTc2ODMxLCJleHAiOjE2NTA1ODA0MzF9.SWZRGQzcV2du0TKiOmPjWCjtMU2XhBryDjpbqkHvnMw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTA5MDU3OTksImV4cCI6MTY1MDkyMzc5OX0.o2eCZiHZPJpNIg2lxODo-wB8G6DLcUV1pAMHM8_ezL4
+
+
 
 ###
-PATCH {{BASE_URL}}/api/users/me
+PATCH {{BASE_URL}}/api/dietitians/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NDk3OTc2MDAsImV4cCI6MTY0OTgwMTIwMH0.yRUH8ZeGgJv5H3isOaX5CUPLAIgZir0bI4f_Z4bYQSs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTA5MDU3OTksImV4cCI6MTY1MDkyMzc5OX0.o2eCZiHZPJpNIg2lxODo-wB8G6DLcUV1pAMHM8_ezL4
 
 {
     
-    "dietitian":"6255cc22fda5e8744188b700"
+    "name":"6255c"
 
 }
 
@@ -116,13 +118,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 
 GET {{BASE_URL}}/api/users/myUsers
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1Y2MyMmZkYTVlODc0NDE4OGI3MDAiLCJlbWFpbCI6ImtlcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQ5Nzk4MjMyLCJleHAiOjE2NDk4MDE4MzJ9.9_DLr9nZy8R7OoQZAEY-38LHrA4TTy-Zd9kF76wCXi4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTA5MDQ2MTYsImV4cCI6MTY1MDkwODIxNn0.4pmHz8kxOqNWsaOApvIoKfnjJNPHNs820DLrMK6r71o
 
 ###
 
 POST {{BASE_URL}}/api/weights
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NTA2Mzc2NzcsImV4cCI6MTY1MDY0MTI3N30.hHjsTwfhrDA9p4vn_v40s05cfeO5ZqYcd1kHwe0Pvl4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTA5MDQ2MTYsImV4cCI6MTY1MDkwODIxNn0.4pmHz8kxOqNWsaOApvIoKfnjJNPHNs820DLrMK6r71o
 
 {
     "weight":"630"
@@ -130,6 +132,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 ###
 GET {{BASE_URL}}/api/weights
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NTA1NjYxNjMsImV4cCI6MTY1MDU2OTc2M30.DY4l5I_rxIp4LHY21NlQfO9VFRyWuUVCGmPmarTIDqI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTA5MDQ2MTYsImV4cCI6MTY1MDkwODIxNn0.4pmHz8kxOqNWsaOApvIoKfnjJNPHNs820DLrMK6r71o
 
 ###
