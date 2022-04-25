@@ -3,6 +3,8 @@ const User = require('../model/userModel');
 const DietList = require('../model/dietListModel');
 const authMiddleware = require('../middleware/authMiddleware');
 
+router.post('/:username/requestDietList', authMiddleware,);
+
 
 
 router.patch('/myList', authMiddleware, async (req,res,next) => {

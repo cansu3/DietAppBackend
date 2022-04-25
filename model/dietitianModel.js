@@ -3,9 +3,16 @@ const Schema = mongoose.Schema;
 const Joi = require('@hapi/joi');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const dietitianProfile = require('../model/dietitianProfileModel');
 
 const DietitianSchema = new Schema(
-    {
+    { 
+      username : {
+        type: String,
+        unique: true,
+        required: true
+
+      },
       email: {
         type: String,
         unique: true,
@@ -20,6 +27,7 @@ const DietitianSchema = new Schema(
 );
 
 const schema = Joi.object({
+  username : Joi.string(),
   email : Joi.string().email(),
   password : Joi.string(),
 });
@@ -60,6 +68,13 @@ return schema.validate(dietitianObject);
 DietitianSchema.statics.joiValidationforUpdate = function (dietitianObject) {
   return schema.validate(dietitianObject);
   }
+
+  DietitianSchema.post('save', async function (doc) {
+   
+    dietitianProfile.create({ _id: doc._id });
+    await dietitianProfile.findByIdAndUpdate({_id: doc._id},{username : doc.username},{new:true})
+   });
+ 
 
 const Dietitian = mongoose.model('Dietitian',DietitianSchema);
 

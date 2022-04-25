@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const Dietitian = require('../model/dietitianModel');
+const DietList = require('../model/dietListModel');
+const User = require('../model/userModel');
 const bcrypt = require('bcrypt');
 const authDietitianMiddleware = require('../middleware/authDietitianMiddleware');
 
@@ -13,6 +15,21 @@ router.get('/', async (req,res) => {
     console.log("Error occurred while finding dietitians:"+error);   
        
    }
+   
+});
+
+router.get('/myUsers', authDietitianMiddleware, async (req,res,next) => {
+    
+    try {
+        allUsers = await DietList.find({dietitian:req.dietitian._id});
+          res.json(allUsers);
+          
+           
+       } catch (error) {
+        console.log("Error occurred while finding users:",error);   
+           
+       }
+       
    
 });
 

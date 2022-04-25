@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const userProfile = require('./userProfileModel');
 const dietitianProfile = require('./dietitianProfileModel');
 
-const dietListSchema = new mongoose.Schema(
+const reqDietListSchema = new mongoose.Schema(
   {
     createdAt: {
       type: Date,
@@ -15,21 +15,13 @@ const dietListSchema = new mongoose.Schema(
     dietitian: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'dietitianProfile',
+    cost:      {
+        type: Number,
+        default:300,
     },
-    breakfast: {
-      type: String
-    },
-    midMorning: {
-        type: String
-    },
-    lunch: {
-        type: String
-    },
-    eveningSnack: {
-        type: String
-    },
-    dinner: {
-        type: String
+    time:      {
+        type: Number,
+        default:30,
     },
   }
 );
@@ -37,6 +29,6 @@ const dietListSchema = new mongoose.Schema(
 
 
 
-const DietList = mongoose.model('DietList', dietListSchema);
+const ReqDietList = mongoose.model('ReqDietList', reqDietListSchema);
 
-module.exports = DietList;
+module.exports = ReqDietList;

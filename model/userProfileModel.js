@@ -6,11 +6,10 @@ const validator = require('validator');
 
 
 const userProfileSchema = new mongoose.Schema(
-  {
-    dietitian: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Dietitian',
-    },
+  { 
+    username: {
+    type: String,
+  },
     gender: {
       type: String,
       enum: ['male', 'female']
@@ -31,7 +30,13 @@ const userProfileSchema = new mongoose.Schema(
       type: Number,
     },
     weight: {
-      type: Number,
+      type: String,
+    },
+    illness: {
+      type:String,
+    },
+    medicine: {
+      type:String,
     },
   }
 );

@@ -7,7 +7,13 @@ const userProfile = require('../model/userProfileModel');
 const DietList = require('../model/dietListModel');
 
 const UserSchema = new Schema(
-  {    
+  {   
+      username : {
+        type: String,
+        unique: true,
+        required: true
+
+      },
       email: {
         type: String,
         unique: true,
@@ -22,6 +28,7 @@ const UserSchema = new Schema(
 );
 
 const schema = Joi.object({
+  username : Joi.string(),
   email : Joi.string().email(),
   password : Joi.string(),
 });
@@ -65,7 +72,9 @@ UserSchema.statics.joiValidationforUpdate = function (userObject) {
 
 
  UserSchema.post('save', async function (doc) {
-   await userProfile.create({ _id: doc._id });
+   
+   userProfile.create({ _id: doc._id });
+   await userProfile.findByIdAndUpdate({_id: doc._id},{username : doc.username},{new:true})
   });
 
   UserSchema.post('save', async function (doc) {

@@ -32,13 +32,6 @@ const dietitianProfileSchema = new mongoose.Schema(
     photo: {
       type: Object,
     },
-    requests: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'userProfile',
-        select: false,
-      },
-    ],
 
   }
 );
