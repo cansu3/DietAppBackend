@@ -87,7 +87,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 
 GET {{BASE_URL}}/api/users/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTA5MDQ2MTYsImV4cCI6MTY1MDkwODIxNn0.4pmHz8kxOqNWsaOApvIoKfnjJNPHNs820DLrMK6r71o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTEwMDk1MzIsImV4cCI6MTY1MTAyNzUzMn0.6MYC0XvzOKuF9Tm3LfzKPiPspIDBwVOVEBKv2fExouk
 
 ###
 GET {{BASE_URL}}/api/dietLists/myList
@@ -98,18 +98,28 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 
 GET {{BASE_URL}}/api/dietitians/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTA5MDU3OTksImV4cCI6MTY1MDkyMzc5OX0.o2eCZiHZPJpNIg2lxODo-wB8G6DLcUV1pAMHM8_ezL4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTEwMDk2ODQsImV4cCI6MTY1MTAyNzY4NH0._GDeVD3RuRaGRfG7u5ghLeWzAU-S00N_E496LWgpW-k
 
 
 
 ###
-PATCH {{BASE_URL}}/api/dietitians/me
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTA5MDU3OTksImV4cCI6MTY1MDkyMzc5OX0.o2eCZiHZPJpNIg2lxODo-wB8G6DLcUV1pAMHM8_ezL4
+PATCH {{BASE_URL}}/api/users/me
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTEwMDk1MzIsImV4cCI6MTY1MTAyNzUzMn0.6MYC0XvzOKuF9Tm3LfzKPiPspIDBwVOVEBKv2fExouk
 
 {
     
-    "name":"6255c"
+    "name":"6255huc"
+
+}
+
+###
+PATCH {{BASE_URL}}/api/users/me
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTEwMDk1MzIsImV4cCI6MTY1MTAyNzUzMn0.6MYC0XvzOKuF9Tm3LfzKPiPspIDBwVOVEBKv2fExouk
+{
+    
+    "name":"6255hc"
 
 }
 
