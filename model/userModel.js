@@ -37,10 +37,10 @@ const UserSchema = new Schema(
         type: Date,
       },
       height: {
-        type: String,
+        type: Number,
       },
       weight: {
-        type: String,
+        type: Number,
       },
       illness: {
         type:String,
@@ -67,8 +67,8 @@ const schema1 = Joi.object({
   gender : Joi.string(),
   name : Joi.string(),
   surname : Joi.string(),
-  height : Joi.string(),
-  weight : Joi.string(),
+  height : Joi.number(),
+  weight : Joi.number(),
   medicine : Joi.string(),
   illness : Joi.string(),
   photo : Joi.object(),

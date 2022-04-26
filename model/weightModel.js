@@ -8,7 +8,7 @@ const WeightSchema = new mongoose.Schema({
     ref: 'user'
   },
   weight: {
-    type: String,
+    type: Number,
     required: [true, 'Message should not be empty']
   },
   createdAt: {
