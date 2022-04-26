@@ -7,8 +7,8 @@ GET {{BASE_URL}}
 POST {{BASE_URL}}/api/users
 Content-Type: application/json
 
-{     "username":"elfif",
-    "email":"delfif@hotmail.com",
+{     "username":"elkfif",
+    "email":"delkfif@hotmail.com",
     "password":"111"
 }
 
@@ -105,18 +105,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyM
 ###
 PATCH {{BASE_URL}}/api/users/me
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTEwMDk1MzIsImV4cCI6MTY1MTAyNzUzMn0.6MYC0XvzOKuF9Tm3LfzKPiPspIDBwVOVEBKv2fExouk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTEwMTUzMTcsImV4cCI6MTY1MTAzMzMxN30.OPDD-KyQ5gMNPLeVq1F5Q8NdyPO63b77mUkJisCdQd8
 
 {
     
-    "name":"6255huc"
-
+    "name":"6255huc",
+    "birthday": "2021-11-11"
 }
 
 ###
 PATCH {{BASE_URL}}/api/users/me
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTEwMDk1MzIsImV4cCI6MTY1MTAyNzUzMn0.6MYC0XvzOKuF9Tm3LfzKPiPspIDBwVOVEBKv2fExouk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTEwMTUzMTcsImV4cCI6MTY1MTAzMzMxN30.OPDD-KyQ5gMNPLeVq1F5Q8NdyPO63b77mUkJisCdQd8
 {
     
     "name":"6255hc"
