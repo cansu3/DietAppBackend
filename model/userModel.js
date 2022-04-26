@@ -72,6 +72,7 @@ const schema1 = Joi.object({
   medicine : Joi.string(),
   illness : Joi.string(),
   photo : Joi.object(),
+  birthday:Joi.date(),
 
 
 });
