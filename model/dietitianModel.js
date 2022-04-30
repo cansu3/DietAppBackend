@@ -60,7 +60,7 @@ const schema1 = Joi.object({
   gender : Joi.string(),
   name : Joi.string(),
   surname : Joi.string(),
-  birthday : Joi.string(),
+  birthday : Joi.date(),
   photo : Joi.object(),
 
 });
