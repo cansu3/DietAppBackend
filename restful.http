@@ -98,18 +98,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN
 
 GET {{BASE_URL}}/api/dietitians/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTEwMDk2ODQsImV4cCI6MTY1MTAyNzY4NH0._GDeVD3RuRaGRfG7u5ghLeWzAU-S00N_E496LWgpW-k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTEzNDgwMDcsImV4cCI6MTY1MTM2NjAwN30.SZAhjNn3YNT8kuzxSdTaMHqyZYIbuLR0Vwrnr3YU-gE
 
 
 
 ###
-PATCH {{BASE_URL}}/api/users/me
+PATCH {{BASE_URL}}/api/dietitians/me
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTEwMTUzMTcsImV4cCI6MTY1MTAzMzMxN30.OPDD-KyQ5gMNPLeVq1F5Q8NdyPO63b77mUkJisCdQd8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTEzNDgwMDcsImV4cCI6MTY1MTM2NjAwN30.SZAhjNn3YNT8kuzxSdTaMHqyZYIbuLR0Vwrnr3YU-gE
 
 {
     
     "name":"6255huc",
+    "surname":"hjj",
     "birthday": "2021-11-11"
 }
 
