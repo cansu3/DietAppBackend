@@ -38,7 +38,6 @@ const DietitianSchema = new Schema(
       },
       birthday: {
         type: Date,
-        select: false,
       },
       photo : {
         type : Object,
