@@ -4,6 +4,9 @@ const DietList = require('../model/dietListModel');
 const User = require('../model/userModel');
 const bcrypt = require('bcrypt');
 const authDietitianMiddleware = require('../middleware/authDietitianMiddleware');
+const dietitianController= require('../controller/dietitianController');
+
+router.get('/:username/getDietitian',dietitianController.getDietitian);
 
 router.get('/', async (req,res) => {
 

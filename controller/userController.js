@@ -18,7 +18,7 @@ const getAllUsers = async (req,res) => {
 const getUser =  async (req,res) => {
 
      try {
-      const findUser = await User.find({_id : req.params.id});
+      const findUser = await User.findOne({username : req.params.username});
       res.json(findUser);
          
      } catch (error) {

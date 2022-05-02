@@ -8,20 +8,16 @@ const userController= require('../controller/userController');
 
 router.get('/',userController.getAllUsers);
 
-//router.get('/:id', userController.getUser);
-
  router.get('/me', authMiddleware, userController.getMyProfileInfo);
+
+ router.get('/:username/getUser',userController.getUser);
 
  router.patch('/me', authMiddleware, userController.updateMyProfile);
 
 router.post('/:username/requestDietPlan',authMiddleware, async (req,res,next) => {
     
     try {
-        const user = await User.login(req.body.email,req.body.password);
-        const token = await user.generateToken();
-        res.json({
-            user:user,
-            token:token});
+       
 
     } catch (error) {
         next(error);
