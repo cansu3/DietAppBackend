@@ -9,7 +9,15 @@ router.get('/', async (req,res) => {
 
    try {
     const allDietitians = await Dietitian.find({});
-    res.json(allDietitians);
+    //res.json(allDietitians);
+
+
+    const dietitians = new Array();
+
+    for (let i in allDietitians) {
+        dietitians.push(allDietitians[i].username);
+      }
+      res.json(dietitians);
        
    } catch (error) {
     console.log("Error occurred while finding dietitians:"+error);   

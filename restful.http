@@ -1,6 +1,6 @@
 @BASE_URL = http://localhost:5000
 ###
-GET {{BASE_URL}}/api/users
+GET {{BASE_URL}}/api/dietitians
 ###
 GET {{BASE_URL}}
 ###
@@ -143,6 +143,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0N
 ###
 GET {{BASE_URL}}/api/weights
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTA5MDQ2MTYsImV4cCI6MTY1MDkwODIxNn0.4pmHz8kxOqNWsaOApvIoKfnjJNPHNs820DLrMK6r71o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTE1MTA3ODQsImV4cCI6MTY1MTUyODc4NH0.hOnKKiC06T12AWc_ZQKjehEhIHZz7U-lgQllBeg4NsE
 
 ###

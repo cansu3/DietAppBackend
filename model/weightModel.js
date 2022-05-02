@@ -1,6 +1,7 @@
 const boolean = require('@hapi/joi/lib/types/boolean');
 const mongoose = require('mongoose');
 const user = require('../model/userModel');
+const Joi = require('@hapi/joi');
 
 const WeightSchema = new mongoose.Schema({
   user: {
@@ -16,6 +17,16 @@ const WeightSchema = new mongoose.Schema({
     default: Date.now
   },
 });
+
+const schema = Joi.object({
+  user : Joi.object(),
+  weight : Joi.number().required(),
+  createdAt : Joi.date(),
+});
+
+WeightSchema.methods.joiValidation = function (weightObject) { 
+  return schema.validate(weightObject);
+}
 
 
 const Weight = new mongoose.model('Weight', WeightSchema);

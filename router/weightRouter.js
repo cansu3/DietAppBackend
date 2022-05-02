@@ -23,7 +23,8 @@ try {
 router.get('/', authMiddleware,  async (req,res) => {
 
     try {
-     const allWeights = await Weight.find({user:req.user._id});
+     const allWeights = await Weight.find({user:req.user._id, createdAt: { $gte: '2022-05-02', $lte: '2022-10-26' } }).
+     sort({ creatededAt: 1 });
      res.json(allWeights);
         
     } catch (error) {
