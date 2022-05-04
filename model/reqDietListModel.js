@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const userProfile = require('./userProfileModel');
-const dietitianProfile = require('./dietitianProfileModel');
+const User = require('./userModel');
+const Dietitian = require('./dietitianModel');
 
 const reqDietListSchema = new mongoose.Schema(
   {
@@ -10,11 +10,11 @@ const reqDietListSchema = new mongoose.Schema(
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'userProfile',
+        ref: 'User',
     },
     dietitian: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'dietitianProfile',
+        ref: 'Dietitian',
     cost:      {
         type: Number,
         default:300,

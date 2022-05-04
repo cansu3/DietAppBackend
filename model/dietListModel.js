@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const dietitian = require('./dietitianModel');
-const user = require('./userModel');
+const Dietitian = require('./dietitianModel');
+const User = require('./userModel');
 
 const dietListSchema = new mongoose.Schema(
   {
@@ -10,11 +10,11 @@ const dietListSchema = new mongoose.Schema(
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user',
+        ref: 'User',
     },
     dietitian: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'dietitian',
+        ref: 'Dietitian',
     },
     breakfast: {
       type: String

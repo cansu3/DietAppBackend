@@ -41,6 +41,9 @@ const DietitianSchema = new Schema(
       },
       photo : {
         type : Object,
+      },
+      photo : {
+        type : Object,
       }
     }
 );

@@ -1,6 +1,16 @@
 @BASE_URL = http://localhost:5000
 ###
-GET {{BASE_URL}}/api/dietitians/keno/getdietitian
+GET {{BASE_URL}}/api/dietitians/elkfif/getdietitian
+
+###
+GET {{BASE_URL}}/api/dietitians/myUsers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTE2NzU1MDEsImV4cCI6MTY1MTY5MzUwMX0.HvwUGVZDVsAEtwyo5HxhbO4EJpXhJ5lnerZo2khjfQU
+
+###
+PATCH {{BASE_URL}}/api/dietLists/eee/requestDietList
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTE2NzQ1MjEsImV4cCI6MTY1MTY5MjUyMX0.acM62he5OpTMXKda45dXJADC_oU-M_xkWetfre9TL8g
 ###
 GET {{BASE_URL}}
 ###
@@ -71,15 +81,14 @@ Content-Type: application/json
 }
 ###
 
-PATCH {{BASE_URL}}/api/dietLists/myList
+PATCH {{BASE_URL}}/api/dietLists/elkfif/writeDietList
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NDk3OTMyMjIsImV4cCI6MTY0OTc5NjgyMn0.GZ1C_05G2eJbsVjt1XC-TcDDEEdm3JIO-K9j4HlD0K8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTE2NjU0NTIsImV4cCI6MTY1MTY4MzQ1Mn0.jvCgPVfypgEURnFCtakePQRjrNHGpc8-unaoYkmO1Us
 
 
 {
 
-    "Monday_breakfast":"eggy",
-    "dietitian":"6255cc22fda5e8744188b700"
+    "breakfast":"eggy"
 
 }
 

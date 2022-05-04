@@ -1,14 +1,16 @@
 const boolean = require('@hapi/joi/lib/types/boolean');
 const mongoose = require('mongoose');
+const User = require('../model/userModel');
+const Dietitian = require('../model/dietitianModel');
 
 const MessageSchema = new mongoose.Schema({
   sender: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'userProfile'
+    ref: 'User'
   },
   to: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'dietitianProfile'
+    ref: 'Dietitian'
   },
   question: {
     type: String,

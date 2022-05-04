@@ -30,10 +30,19 @@ router.get('/', async (req,res) => {
 });
 
 router.get('/myUsers', authDietitianMiddleware, async (req,res,next) => {
-    
+     
     try {
-        allUsers = await DietList.find({dietitian:req.dietitian._id});
-          res.json(allUsers);
+        allLists = await DietList.find({dietitian:req.dietitian._id});
+
+       // const findUser=Object;
+        const users = new Array();
+
+    for (let i in allLists) {
+       const findUser=await User.findById({_id:allLists[i].user});
+
+        users.push(findUser.username);
+      }
+          res.json(users);
           
            
        } catch (error) {
