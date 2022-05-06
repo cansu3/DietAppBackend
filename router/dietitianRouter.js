@@ -53,8 +53,10 @@ router.get('/myUsers', authDietitianMiddleware, async (req,res,next) => {
    
 });
 
-router.get('/me', authDietitianMiddleware, (req,res,next) => {
-    res.json(req.dietitian);
+router.get('/me', authDietitianMiddleware, async (req,res,next) => {
+    const findDietitian = await Dietitian.findById({_id : req.dietitian._id});
+    //res.json(dietitian:findDietitian,birth:findDietitian.birthday.toDateString());
+    res.json(findDietitian);
 
    
 });

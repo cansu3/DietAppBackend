@@ -10,9 +10,9 @@ const WeightSchema = new mongoose.Schema({
   },
   weight: {
     type: Number,
-    required: [true, 'Message should not be empty']
+    required: [true, 'Please enter your weight']
   },
-  createdAt: {
+  date: {
     type: Date,
     default: Date.now
   },
@@ -21,7 +21,7 @@ const WeightSchema = new mongoose.Schema({
 const schema = Joi.object({
   user : Joi.object(),
   weight : Joi.number().required(),
-  createdAt : Joi.date(),
+  date : Joi.date(),
 });
 
 WeightSchema.methods.joiValidation = function (weightObject) { 
