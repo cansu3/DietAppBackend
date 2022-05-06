@@ -24,14 +24,10 @@ router.get('/', authMiddleware,  async (req,res,next) => {
 
     let today = new Date();
     let lastYear = new Date();
-   // const day = parseInt(today.getFullYear().toString())-1;
+
     lastYear.setFullYear(parseInt(today.getFullYear().toString())-1);
     lastYear.setMonth(parseInt(today.getMonth().toString())+1);
-    //console.log(typeof(day));
-    const month = today.toLocaleString('default', { month: 'short' });
-    console.log(month);
-    console.log(today.toDateString());
-    console.log(lastYear.getFullYear());
+
     try {
     const allWeights = await Weight.find({user:req.user._id,date: { $gte: lastYear, $lte: today } }).sort({ date: 1 });
 
@@ -91,16 +87,7 @@ router.get('/', authMiddleware,  async (req,res,next) => {
         }    
     } 
        
-   
- 
-
-       console.log(sumweights);
-       console.log(weights);
-       console.log(months);
-           
-
-     //res.json({weights:weights,months:months});
-     res.json(allWeights);
+     res.json({weights:weights,months:months});
         
     } catch (error) {
         next(error);
