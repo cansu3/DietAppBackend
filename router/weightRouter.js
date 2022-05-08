@@ -36,7 +36,8 @@ router.get('/', authMiddleware,  async (req,res,next) => {
      let weight=0;
      let newDate=new Date();
      const weights = new Array();
-     const months = new Array();
+     weights.push(0);
+     const months = new Array(" ");
      let sumweights2=0;
 
 
