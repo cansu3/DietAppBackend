@@ -5,13 +5,10 @@ const DietList = require('../model/dietListModel');
 const authMiddleware = require('../middleware/authMiddleware');
 const authDietitianMiddleware = require('../middleware/authDietitianMiddleware');
 
-router.patch('/:username/requestDietList', authMiddleware, async (req,res,next) => {
-    //const list = await DietList.find({user:req.user._id});
-    //console.log(list._id);
+router.patch('/requestDietList/:username', authMiddleware, async (req,res,next) => {
         try {
         const updateDietitian = await Dietitian.findOne({username:req.params.username});
         console.log(updateDietitian);
-        const updateUser = await Dietitian.findOne({username:req.params.username});
         const result=await DietList.findByIdAndUpdate({_id : req.user._id},{user:req.user._id,dietitian:updateDietitian._id},{new:true});
         
         if (result) {
@@ -26,9 +23,7 @@ router.patch('/:username/requestDietList', authMiddleware, async (req,res,next) 
 
 });
 
-router.patch('/:username/writeDietList', authDietitianMiddleware, async (req,res,next) => {
-    //const list = await DietList.find({user:req.user._id});
-    //console.log(list._id);
+router.patch('/writeDietList/:username', authDietitianMiddleware, async (req,res,next) => {
         try {
         const theUser = await User.findOne({username:req.params.username});
         const result = await DietList.findByIdAndUpdate({_id : theUser._id},req.body,{new:true});

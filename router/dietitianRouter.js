@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const authDietitianMiddleware = require('../middleware/authDietitianMiddleware');
 const dietitianController= require('../controller/dietitianController');
 
-router.get('/:username/getDietitian',dietitianController.getDietitian);
+router.get('/getDietitian/:username',dietitianController.getDietitian);
 
 router.get('/', async (req,res) => {
 
@@ -55,9 +55,13 @@ router.get('/myUsers', authDietitianMiddleware, async (req,res,next) => {
 
 router.get('/me', authDietitianMiddleware, async (req,res,next) => {
     const findDietitian = await Dietitian.findById({_id : req.dietitian._id});
-    //res.json(dietitian:findDietitian,birth:findDietitian.birthday.toDateString());
-    res.json(findDietitian);
-
+    res.json({name:findDietitian.name,
+        surname:findDietitian.surname,
+        birthday:findDietitian.birthday.toDateString(),
+        username:findDietitian.username,
+        email:findDietitian.email,
+        gender:findDietitian.gender,
+        bio:findDietitian.bio});
    
 });
 

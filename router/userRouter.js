@@ -10,11 +10,11 @@ router.get('/',userController.getAllUsers);
 
  router.get('/me', authMiddleware, userController.getMyProfileInfo);
 
- router.get('/:username/getUser',userController.getUser);
+ router.get('/getUser/:username',userController.getUser);
 
  router.patch('/me', authMiddleware, userController.updateMyProfile);
 
-router.post('/:username/requestDietPlan',authMiddleware, async (req,res,next) => {
+router.post('/requestDietPlan/:username',authMiddleware, async (req,res,next) => {
     
     try {
        
