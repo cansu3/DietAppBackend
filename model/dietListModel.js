@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Dietitian = require('./dietitianModel');
 const User = require('./userModel');
+const Joi = require('@hapi/joi');
 
 const dietListSchema = new mongoose.Schema(
   {
@@ -31,8 +32,32 @@ const dietListSchema = new mongoose.Schema(
     dinner: {
         type: String
     },
+    snack: {
+      type: String
+    },
+    totalCalorie: {
+      type: Number
+    }
   }
 );
+
+const schema = Joi.object({
+  createdAt : Joi.date(),
+  user : Joi.object(),
+  dietitian: Joi.object(),
+  breakfast : Joi.string(),
+  midMorning : Joi.string(),
+  lunch : Joi.string(),
+  eveningSnack : Joi.string(),
+  lunch : Joi.string(),
+  snack : Joi.string(),
+  totalCalorie : Joi.number(),
+});
+
+dietListSchema.methods.joiValidation = function (dietListObject) { 
+  return schema.validate(dietListObject);
+}
+
 
 
 
