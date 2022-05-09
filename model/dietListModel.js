@@ -37,6 +37,9 @@ const dietListSchema = new mongoose.Schema(
     },
     totalCalorie: {
       type: Number
+    },
+    note: {
+      type: String
     }
   }
 );
@@ -52,6 +55,7 @@ const schema = Joi.object({
   lunch : Joi.string(),
   snack : Joi.string(),
   totalCalorie : Joi.number(),
+  note : Joi.string()
 });
 
 dietListSchema.methods.joiValidation = function (dietListObject) { 
