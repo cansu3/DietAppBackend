@@ -81,16 +81,10 @@ Content-Type: application/json
 }
 ###
 
-PATCH {{BASE_URL}}/api/dietLists/elkfif/writeDietList
+GET {{BASE_URL}}/api/dietLists/userList/elkfif
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTE2NjU0NTIsImV4cCI6MTY1MTY4MzQ1Mn0.jvCgPVfypgEURnFCtakePQRjrNHGpc8-unaoYkmO1Us
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTIyMDgyODMsImV4cCI6MTY1MjIyNjI4M30.XFabL8M8tG5dNq6zWo3ep9DitMi38gezUv0zwMwRZYU
 
-
-{
-
-    "breakfast":"eggy"
-
-}
 
 ###
 
