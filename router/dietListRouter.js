@@ -46,6 +46,13 @@ router.get('/myList', authMiddleware, async (req,res,next) => {
 
    
 });
+router.get('/userList/:username', authDietitianMiddleware, async (req,res,next) => {
+    const theUser = await User.findOne({username:req.params.username});
+    const result = await DietList.findById({_id : theUser._id});
+    res.json(result);
+
+   
+});
 
 
 
