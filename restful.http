@@ -101,7 +101,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0N
 ###
 GET {{BASE_URL}}/api/dietLists/myList
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU1YzYzN2I3NWI0ZTkxMjhmN2JlMWQiLCJpYXQiOjE2NDk3ODg0ODMsImV4cCI6MTY0OTc5MjA4M30.9D__n16NipfZhi_xTrGWr4vTeNmIE_V3Ob9t-FU-Isc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTIyMDUwODMsImV4cCI6MTY1MjIyMzA4M30.llmZMbPJnMYAkoM8hNdEOxE4qpqU901vQF8z4yauoIc
 
 ###
 
