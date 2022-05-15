@@ -26,7 +26,7 @@ router.post('/askQuestion', authMiddleware, async (req,res,next) => {
 
     router.get('/readQuestion/:id', authDietitianMiddleware, async (req,res,next) => {
         try {
-        const updateQuestion = await Question.findOne({id:req.params.id});
+        const updateQuestion = await Question.findOne({_id:req.params.id});
         const result=await Question.findByIdAndUpdate({_id : updateQuestion._id},{readQuestion:true},{new:true});
         
         if (result) {
@@ -43,7 +43,7 @@ router.post('/askQuestion', authMiddleware, async (req,res,next) => {
 
 router.get('/readAnswer/:id', authMiddleware, async (req,res,next) => {
     try {
-    const updateQuestion = await Question.findOne({id:req.params.id});
+    const updateQuestion = await Question.findOne({_id:req.params.id});
     const result=await Question.findByIdAndUpdate({_id : updateQuestion._id},{readAnswer:true},{new:true});
     
     if (result) {
@@ -60,7 +60,7 @@ router.get('/readAnswer/:id', authMiddleware, async (req,res,next) => {
 
 router.patch('/answerQuestion/:id', authDietitianMiddleware, async (req,res,next) => {
     try {
-    const updateQuestion = await Question.findOne({id:req.params.id});
+    const updateQuestion = await Question.findOne({_id:req.params.id});
     const result=await Question.findByIdAndUpdate({_id : updateQuestion._id},req.body,{new:true});
     const result2=await Question.findByIdAndUpdate({_id : updateQuestion._id},{readAnswer:false},{new:true});
     
@@ -78,11 +78,11 @@ router.patch('/answerQuestion/:id', authDietitianMiddleware, async (req,res,next
 
 router.get('/getQuestion/:id', authDietitianMiddleware, async (req,res,next) => {
     try {
-    const getQuestion = await Question.findOne({id:req.params.id});
+    const getQuestion = await Question.findOne({_id:req.params.id});
     const findUser = await User.findOne({_id:getQuestion.sender});
     const findDietitian = await Dietitian.findOne({_id:getQuestion.to});
     
-    if (getQuestion && User && Dietitian) {
+    if (getQuestion && findUser && findDietitian) {
         return res.json( {_id: getQuestion._id,
                           sender:findUser.username,
                           to:findDietitian.username,
@@ -102,11 +102,11 @@ router.get('/getQuestion/:id', authDietitianMiddleware, async (req,res,next) => 
 
 router.get('/getAnswer/:id', authMiddleware, async (req,res,next) => {
     try {
-    const getQuestion = await Question.findOne({id:req.params.id});
+    const getQuestion = await Question.findOne({_id:req.params.id});
     const findUser = await User.findOne({_id:getQuestion.sender});
     const findDietitian = await Dietitian.findOne({_id:getQuestion.to});
     
-    if (getQuestion && User && Dietitian) {
+    if (getQuestion && findUser && findDietitian) {
         return res.json( {_id: getQuestion._id,
                           sender:findUser.username,
                           to:findDietitian.username,
