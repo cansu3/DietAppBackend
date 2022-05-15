@@ -126,7 +126,7 @@ router.get('/getAnswer/:id', authMiddleware, async (req,res,next) => {
 
 router.get('/getAnswers', authMiddleware, async (req,res,next) => {
     try {
-    const getQuestion = await Question.find({user:req.user._id});
+    const getQuestion = await Question.find({sender:req.user._id});
 
 
     
@@ -144,7 +144,7 @@ router.get('/getAnswers', authMiddleware, async (req,res,next) => {
 
 router.get('/getQuestions', authDietitianMiddleware, async (req,res,next) => {
     try {
-    const getQuestion = await Question.find({dietitian:req.dietitian._id});
+    const getQuestion = await Question.find({to:req.dietitian._id});
 
 
     
