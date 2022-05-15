@@ -8,9 +8,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTE2NzU1MDEsImV4cCI6MTY1MTY5MzUwMX0.HvwUGVZDVsAEtwyo5HxhbO4EJpXhJ5lnerZo2khjfQU
 
 ###
-PATCH {{BASE_URL}}/api/dietLists/eee/requestDietList
+PATCH {{BASE_URL}}/api/dietLists/requestDietList/eee
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTE2NzQ1MjEsImV4cCI6MTY1MTY5MjUyMX0.acM62he5OpTMXKda45dXJADC_oU-M_xkWetfre9TL8g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTI1NDAzMDgsImV4cCI6MTY1MjU1ODMwOH0.wpbdnG4xjw_mAgfMqx8-mW942uXk_GJSxzZL72lBayo
 ###
 GET {{BASE_URL}}
 ###
@@ -90,12 +90,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyM
 
 GET {{BASE_URL}}/api/users/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTIwMzEzNTcsImV4cCI6MTY1MjA0OTM1N30.RUidbafBR6jH5NBSyQFPtqNhRjrtUiEi6B6YK2I7rQk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTI1NDY3NjUsImV4cCI6MTY1MjU2NDc2NX0.r9OqtutvQQ39JrpCPuRXnMAAfzYt9iV5tbdeSmAOWes
+
+###
+
+###
+
+GET {{BASE_URL}}/api/users/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTI1NTIxMDQsImV4cCI6MTY1MjU5NTMwNH0.WbsnMvHebh_UQRpJjpux4SIQH3I4eylJFWXyQ23QEcE
 
 ###
 GET {{BASE_URL}}/api/dietLists/myList
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTIyMDUwODMsImV4cCI6MTY1MjIyMzA4M30.llmZMbPJnMYAkoM8hNdEOxE4qpqU901vQF8z4yauoIc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJlbWFpbCI6ImRlbGlmQGhvdG1haWwuY29tIiwiaWF0IjoxNjUyNTYwMzI4LCJleHAiOjE2NTI1NjAzMjh9.FmO4cSqgIeZl0fE4IWzULGzZ2-Yy6onxMb6F3D4xEUQ
 
 ###
 
@@ -149,3 +157,41 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTIwMzM5NTgsImV4cCI6MTY1MjA1MTk1OH0.Rcwd3G6s8uCNWsCZNbwJpXUsmadiCIbHR1Bn1ADM0pM
 
 ###
+
+###
+
+POST {{BASE_URL}}/api/questions/askQuestion
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTI1NDAzMDgsImV4cCI6MTY1MjU1ODMwOH0.wpbdnG4xjw_mAgfMqx8-mW942uXk_GJSxzZL72lBayo
+
+{    "question":"Hello",
+     "subject":"about"
+}
+###
+GET {{BASE_URL}}/api/questions/getQuestions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTI1NDA2MjMsImV4cCI6MTY1MjU1ODYyM30.brR_INTepH_zDIv8CVOxnjcqYqul1sOurgbV2zfsM_A
+
+###
+
+GET {{BASE_URL}}/api/questions/getQuestion/627fc451f304a33dee038e36
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTI1NDA2MjMsImV4cCI6MTY1MjU1ODYyM30.brR_INTepH_zDIv8CVOxnjcqYqul1sOurgbV2zfsM_A
+
+###
+
+GET {{BASE_URL}}/api/questions/readAnswer/627fc451f304a33dee038e36
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTI1NDAzMDgsImV4cCI6MTY1MjU1ODMwOH0.wpbdnG4xjw_mAgfMqx8-mW942uXk_GJSxzZL72lBayo
+
+###
+
+PATCH {{BASE_URL}}/api/questions/answerQuestion/627fc451f304a33dee038e36
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTI1NDAzMDgsImV4cCI6MTY1MjU1ODMwOH0.wpbdnG4xjw_mAgfMqx8-mW942uXk_GJSxzZL72lBayo
+
+{    "answer":"Hello"
+}
+
+
+

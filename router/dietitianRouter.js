@@ -5,6 +5,7 @@ const User = require('../model/userModel');
 const bcrypt = require('bcrypt');
 const authDietitianMiddleware = require('../middleware/authDietitianMiddleware');
 const dietitianController= require('../controller/dietitianController');
+const jwt = require('jsonwebtoken');
 
 router.get('/getDietitian/:username',dietitianController.getDietitian);
 
@@ -119,6 +120,21 @@ router.get('/:id', async (req,res) => {
     } catch (error) {
         next(error);
         console.log("Error occurred while login:"+error);   
+    }
+    
+});
+
+router.get('/logout', async (req,res,next) => {
+    
+    try {
+  
+        const token = await jwt.sign({_id:req.dietitian._id,email:req.dietitian.email},'secretkey',{expiresIn:'1'});
+        return token;
+        res.json({token:token});
+
+    } catch (error) {
+        next(error);
+        console.log("Error occurred while logout:"+error);   
     }
     
 });

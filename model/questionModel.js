@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const User = require('../model/userModel');
 const Dietitian = require('../model/dietitianModel');
 
-const MessageSchema = new mongoose.Schema({
+const QuestionSchema = new mongoose.Schema({
   sender: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -16,6 +16,9 @@ const MessageSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Message should not be empty']
   },
+  subject: {
+    type: String
+  },
   answer: {
     type: String
   },
@@ -23,10 +26,14 @@ const MessageSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  seen: {
+  readQuestion: {
     type: Boolean,
     default: false
   },
+  readAnswer: {
+    type: Boolean,
+    default: true
+  }
 });
 
 

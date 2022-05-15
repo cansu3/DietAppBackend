@@ -70,7 +70,7 @@ const schema1 = Joi.object({
 DietitianSchema.methods.generateToken = async function () {
   
   const loggedInDietitian = this;
-  const token = await jwt.sign({_id:loggedInDietitian._id,email:loggedInDietitian.email},'secretkey',{expiresIn:'5h'});
+  const token = await jwt.sign({_id:loggedInDietitian._id,email:loggedInDietitian.email},'secretkey',{expiresIn:'12h'});
   return token;
 
 }

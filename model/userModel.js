@@ -80,7 +80,7 @@ const schema1 = Joi.object({
 UserSchema.methods.generateToken = async function () {
   
   const loggedInUser = this;
-  const token = await jwt.sign({_id:loggedInUser._id},'secretkey',{expiresIn:'5h'});
+  const token = await jwt.sign({_id:loggedInUser._id},'secretkey',{expiresIn:'12h'});
   return token;
 
 }

@@ -2,12 +2,14 @@ const express = require('express');
 require('./database/databaseConnection');
 const errorMiddleware = require('./middleware/errorMiddleware');
 
+
 //Routes
 const userRouter = require('./router/userRouter');
 const dietitianRouter = require('./router/dietitianRouter');
 const foodRouter = require('./router/foodRouter');
 const dietListRouter = require('./router/dietListRouter');
 const weightRouter = require('./router/weightRouter');
+const questionRouter = require('./router/questionRouter');
 
 const app = express();
 
@@ -19,6 +21,7 @@ app.use('/api/dietitians', dietitianRouter);
 app.use('/api/foods', foodRouter);
 app.use('/api/dietLists', dietListRouter);
 app.use('/api/weights', weightRouter);
+app.use('/api/questions', questionRouter);
 
 app.get('/',(req,res) =>{
     res.status(200).json({'mesaj': 'hello'});
