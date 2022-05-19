@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../model/userModel');
 const Dietitian = require('../model/dietitianModel');
+const Notification = require('../model/notificationModel');
 const DietList = require('../model/dietListModel');
 const authMiddleware = require('../middleware/authMiddleware');
 const authDietitianMiddleware = require('../middleware/authDietitianMiddleware');
@@ -10,8 +11,15 @@ router.patch('/requestDietList/:username', authMiddleware, async (req,res,next) 
         const updateDietitian = await Dietitian.findOne({username:req.params.username});
         console.log(updateDietitian);
         const result=await DietList.findByIdAndUpdate({_id : req.user._id},{user:req.user._id,dietitian:updateDietitian._id},{new:true});
+
+        const saveNotification = new Notification({toDietitian:updateDietitian._id,
+                                                   fromUser:req.user._id,
+                                                   message: req.user.name+' '+req.user.surname+' requested a diet plan from you!'});
+                                                
+        const result2 = await saveNotification.save(); 
+
         
-        if (result) {
+        if (result && result2) {
             return res.json( {message: "Request successfull"});
         } else {
             return res.status().json({message: "Request failed"});
@@ -27,8 +35,16 @@ router.patch('/writeDietList/:username', authDietitianMiddleware, async (req,res
         try {
         const theUser = await User.findOne({username:req.params.username});
         const result = await DietList.findByIdAndUpdate({_id : theUser._id},req.body,{new:true});
+
         
-        if (result) {
+        const saveNotification = new Notification({fromDietitian:req.dietitian._id,
+                                                   toUser:theUser._id,
+                                                   message: updateDietitian.name+' '+updateDietitian.surname+' updated your diet plan!'});
+         
+            const result2 = await saveNotification.save(); 
+  
+        
+        if (result && resultlt2) {
             return res.json( {message: "List updated"});
         } else {
             return res.status().json({message: "List could not updated"});
