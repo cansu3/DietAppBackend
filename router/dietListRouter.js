@@ -14,7 +14,7 @@ router.patch('/requestDietList/:username', authMiddleware, async (req,res,next) 
 
         const saveNotification = new Notification({toDietitian:updateDietitian._id,
                                                    fromUser:req.user._id,
-                                                   message: req.user.name+' '+req.user.surname+' requested a diet plan from you!'});
+                                                   message: req.user.username+' requested a diet plan from you!'});
                                                 
         const result2 = await saveNotification.save(); 
 
@@ -39,7 +39,7 @@ router.patch('/writeDietList/:username', authDietitianMiddleware, async (req,res
         
         const saveNotification = new Notification({fromDietitian:req.dietitian._id,
                                                    toUser:theUser._id,
-                                                   message: updateDietitian.name+' '+updateDietitian.surname+' updated your diet plan!'});
+                                                   message: req.dietitian.username +' updated your diet plan!'});
          
             const result2 = await saveNotification.save(); 
   

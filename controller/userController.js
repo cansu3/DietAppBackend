@@ -19,7 +19,6 @@ const getUser =  async (req,res) => {
 
      try {
       let findUser = await User.findOne({username : req.params.username});
-      findUser.weight.toDateString();
       res.json({gender:findUser.gender,
         birthday:findUser.birthday.toDateString(),
         weight:findUser.weight,
