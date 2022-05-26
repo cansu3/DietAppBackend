@@ -94,18 +94,6 @@ router.patch('/me', authDietitianMiddleware, async (req,res,next) => {
    
 });
 
-router.get('/:id', async (req,res) => {
-
-    try {
-     const Dietitian = await Dietitian.find({_id : req.params.id});
-     res.json(Dietitian);
-        
-    } catch (error) {
-     console.log("Error occurred while finding dietitian:"+error);   
-        
-    }
-    
- });
 
 
  router.post('/login', async (req,res,next) => {
