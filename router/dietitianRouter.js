@@ -129,7 +129,7 @@ router.get('/logout', authDietitianMiddleware, async (req,res,next) => {
     try {
   
         const token = await jwt.sign({_id:req.dietitian._id,email:req.dietitian.email},'secretkey',{expiresIn:'1'});
-        return token;
+      
         res.json({token:token});
 
     } catch (error) {
