@@ -96,9 +96,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0N
 
 ###
 
-GET {{BASE_URL}}/api/users/logout
+GET {{BASE_URL}}/api/dietitians/logout
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTI1NTIxMDQsImV4cCI6MTY1MjU5NTMwNH0.WbsnMvHebh_UQRpJjpux4SIQH3I4eylJFWXyQ23QEcE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTM1OTExMjcsImV4cCI6MTY1MzYzNDMyN30.Zd1MVSU-I9cVQj4XYJhk9BTPJPB_JMMHTvvpmlFIYSw
 
 ###
 GET {{BASE_URL}}/api/dietLists/myList
