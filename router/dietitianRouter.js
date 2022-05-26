@@ -66,17 +66,11 @@ router.get('/me', authDietitianMiddleware, async (req,res,next) => {
    
 });
  
-//router.get('/findDietitian/:username', authDietitianMiddleware, async (req,res,next) => {
-   // const findDietitian = await Dietitian.find({_id : req.dietitian._id});
-  //  res.json({name:findDietitian.name,
-   //     surname:findDietitian.surname,
-   //     birthday:findDietitian.birthday.toDateString(),
-   //     username:findDietitian.username,
-   //     email:findDietitian.email,
-   //     gender:findDietitian.gender,
-   //     bio:findDietitian.bio});
+router.get('/findDietitian/:username', authDietitianMiddleware, async (req,res,next) => {
+    const findDietitian = await Dietitian.findOne({username : req.params.username});
+    res.json(findDietitian);
    
-//}); 
+}); 
 
 
 router.patch('/me', authDietitianMiddleware, async (req,res,next) => {
