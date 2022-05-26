@@ -10,10 +10,10 @@ const authDietitianMiddleware = require('../middleware/authDietitianMiddleware')
 router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
 
     try {
-    const allNotifications = await Notification.find({toUser:req.user._id }).limit(20).sort({ createdAt: 1 });
+    const allNotifications = await Notification.find({toUser:req.user._id }).sort({ createdAt: 1 });
 
 
-     res.json({allNotifications});
+     res.json({allNotifications.message});
 
      for(let i=0;i<allNotifications.length;i++){
         allNotifications[i].update({readfromUser:true});  
@@ -30,10 +30,10 @@ router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
  router.get('/getDietitianNotifications', authDietitianMiddleware,  async (req,res,next) => {
 
     try {
-    const allNotifications = await Notification.find({toDietitian:req.dietitian._id }).limit(20).sort({ createdAt: 1 });
+    const allNotifications = await Notification.find({toDietitian:req.dietitian._id }).sort({ createdAt: 1 });
 
 
-     res.json({allNotifications});
+     res.json({allNotifications.message});
 
      for(let i=0;i<allNotifications.length;i++){
       allNotifications[i].update({readfromDietitian:true});   
@@ -47,6 +47,43 @@ router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
     }
     
  });
+
+
+router.get('/NumberOfDietitianNotification', authDietitianMiddleware, async (req,res,next) => {
+try {
+   const findNotifications = await Notification.find({toDietitian:req.dietitian._id, readfromDietitian : false});
+   const number=findNotifications.length;
+   
+   if (number) {
+       return res.json(number);
+   } else {
+       return res.status().json({message: "Request failed"});
+   }
+   } catch (error) {
+       next(error);
+       console.log("Error occurred while updating question:",error);
+   }
+
+
+}); 
+
+router.get('/NumberOfUserNotification', authMiddleware, async (req,res,next) => {
+   try {
+      const findNotifications = await Notification.find({toUser:req.user._id, readfromUser : false});
+      const number=findNotifications.length;
+      
+      if (number) {
+          return res.json(number);
+      } else {
+          return res.status().json({message: "Request failed"});
+      }
+      } catch (error) {
+          next(error);
+          console.log("Error occurred while updating question:",error);
+      }
+   
+   
+   }); 
 
 
 module.exports = router;
