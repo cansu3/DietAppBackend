@@ -44,13 +44,10 @@ router.post('/askQuestion', authMiddleware, async (req,res,next) => {
 router.get('/NumberOfQuestion', authDietitianMiddleware, async (req,res,next) => {
     try {
         const findQuestions = await Question.find({to:req.dietitian._id, readQuestion : false});
-        const number=findQuestions.length;
+
+           res.json(findQuestions.length.toString);
         
-        if (number) {
-            return res.json(number);
-        } else {
-            return res.status().json({message: "Request failed"});
-        }
+        
         } catch (error) {
             next(error);
             console.log("Error occurred while updating question:",error);
@@ -62,13 +59,10 @@ router.get('/NumberOfQuestion', authDietitianMiddleware, async (req,res,next) =>
 router.get('/NumberOfAnswer', authMiddleware, async (req,res,next) => {
     try {
     const findAnswers = await Question.find({sender:req.user._id, readAnswer : false});
-    const number=findAnswers.length;
+    const number=0;
+
+       res.json(findAnswers.length.toString);
     
-    if (number) {
-        return res.json(number);
-    } else {
-        return res.status().json({message: "Request failed"});
-    }
     } catch (error) {
         next(error);
         console.log("Error occurred while updating question:",error);

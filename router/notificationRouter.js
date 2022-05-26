@@ -52,13 +52,9 @@ router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
 router.get('/NumberOfDietitianNotification', authDietitianMiddleware, async (req,res,next) => {
 try {
    const findNotifications = await Notification.find({toDietitian:req.dietitian._id, readfromDietitian : false});
-   const number=findNotifications.length;
+  
+      res.json(findNotifications.length.toString);
    
-   if (number) {
-       return res.json(number);
-   } else {
-       return res.status().json({message: "Request failed"});
-   }
    } catch (error) {
        next(error);
        console.log("Error occurred while updating question:",error);
@@ -70,13 +66,9 @@ try {
 router.get('/NumberOfUserNotification', authMiddleware, async (req,res,next) => {
    try {
       const findNotifications = await Notification.find({toUser:req.user._id, readfromUser : false});
-      const number=findNotifications.length;
+
+         res.json(findNotifications.length.toString);
       
-      if (number) {
-          return res.json(number);
-      } else {
-          return res.status().json({message: "Request failed"});
-      }
       } catch (error) {
           next(error);
           console.log("Error occurred while updating question:",error);

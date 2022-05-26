@@ -186,12 +186,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0N
 
 ###
 
-PATCH {{BASE_URL}}/api/questions/answerQuestion/627fc451f304a33dee038e36
+GET {{BASE_URL}}/api/notifications/NumberOfDietitianNotification
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTI1NDAzMDgsImV4cCI6MTY1MjU1ODMwOH0.wpbdnG4xjw_mAgfMqx8-mW942uXk_GJSxzZL72lBayo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTM1OTM1MjUsImV4cCI6MTY1MzYzNjcyNX0.Qm05TG2bNrUZUuRAfHBXg2aTA5mbSvzZ7dnaA3PCaFg
 
-{    "answer":"Hello"
-}
+###
+GET {{BASE_URL}}/api/questions/NumberOfQuestion
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTM1OTM1MjUsImV4cCI6MTY1MzYzNjcyNX0.Qm05TG2bNrUZUuRAfHBXg2aTA5mbSvzZ7dnaA3PCaFg
+###
+GET {{BASE_URL}}/api/questions/NumberOfAnswer
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM1OTQwNjIsImV4cCI6MTY1MzYzNzI2Mn0.Rf4O9AXSZmhVT_JYE8kJyuDtgrIfarq19811HoyOEpo
+
+
 
 
 
