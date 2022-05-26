@@ -16,8 +16,8 @@ router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
      res.json(allNotifications);
 
      for(let i=0;i<allNotifications.length;i++){
-        allNotifications[i].update({readfromUser:true});  
-       }
+      await Notification.findByIdAndUpdate({_id : allNotifications[i]._id},{readfromUser:true},{new:true});   
+     }
         
     } catch (error) {
         next(error);
@@ -36,7 +36,7 @@ router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
      res.json(allNotifications);
 
      for(let i=0;i<allNotifications.length;i++){
-      allNotifications[i].update({readfromDietitian:true});   
+      await Notification.findByIdAndUpdate({_id : allNotifications[i]._id},{readfromDietitian:true},{new:true});   
      }
      
         
@@ -49,14 +49,16 @@ router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
  });
 
 
-router.get('/NumberOfDietitianNotification', authDietitianMiddleware, async (req,res,next) => {
+router.get('/dietitianNotification', authDietitianMiddleware, async (req,res,next) => {
 try {
    const findNotifications = await Notification.find({toDietitian:req.dietitian._id, readfromDietitian : false});
     
-        res.json(findNotifications.length);
-     
-  
-      
+   if(findNotifications.length>0){
+      res.json({notification:true});
+   }else {
+      res.json({notification:false});
+   }
+   
    
    } catch (error) {
        next(error);
@@ -66,13 +68,15 @@ try {
 
 }); 
 
-router.get('/NumberOfUserNotification', authMiddleware, async (req,res,next) => {
+router.get('/userNotification', authMiddleware, async (req,res,next) => {
    try {
       const findNotifications = await Notification.find({toUser:req.user._id, readfromUser : false});
 
-  
-         res.json(findNotifications.length);
-    
+      if(findNotifications.length>0){
+         res.json({notification:true});
+      }else {
+         res.json({notification:false});
+      }
       
       } catch (error) {
           next(error);
