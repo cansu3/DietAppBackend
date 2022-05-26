@@ -41,6 +41,41 @@ router.post('/askQuestion', authMiddleware, async (req,res,next) => {
 
 }); 
 
+router.get('/NumberOfQuestion', authDietitianMiddleware, async (req,res,next) => {
+    try {
+        const findQuestions = await Question.find({to:req.dietitian._id, readQuestion : false});
+        const number=findQuestions.length;
+        
+        if (number) {
+            return res.json(number);
+        } else {
+            return res.status().json({message: "Request failed"});
+        }
+        } catch (error) {
+            next(error);
+            console.log("Error occurred while updating question:",error);
+        }
+    
+
+}); 
+
+router.get('/NumberOfAnswer', authMiddleware, async (req,res,next) => {
+    try {
+    const findAnswers = await Question.find({sender:req.user._id, readAnswer : false});
+    const number=findAnswers.length;
+    
+    if (number) {
+        return res.json(number);
+    } else {
+        return res.status().json({message: "Request failed"});
+    }
+    } catch (error) {
+        next(error);
+        console.log("Error occurred while updating question:",error);
+    }
+
+}); 
+
 router.get('/readAnswer/:id', authMiddleware, async (req,res,next) => {
     try {
     const updateQuestion = await Question.findOne({_id:req.params.id});
@@ -149,6 +184,7 @@ router.get('/getQuestions', authDietitianMiddleware, async (req,res,next) => {
 
     
     if (getQuestion) {
+        
         return res.json(getQuestion);
     } else {
         return res.status().json({message: "Request failed"});

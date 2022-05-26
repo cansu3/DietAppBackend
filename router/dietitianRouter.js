@@ -124,7 +124,7 @@ router.get('/:id', async (req,res) => {
     
 });
 
-router.get('/logout', async (req,res,next) => {
+router.get('/logout', authDietitianMiddleware async (req,res,next) => {
     
     try {
   
