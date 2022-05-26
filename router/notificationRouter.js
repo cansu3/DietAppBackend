@@ -13,7 +13,7 @@ router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
     const allNotifications = await Notification.find({toUser:req.user._id }).sort({ createdAt: 1 });
 
 
-     res.json({allNotifications.message});
+     res.json(allNotifications);
 
      for(let i=0;i<allNotifications.length;i++){
         allNotifications[i].update({readfromUser:true});  
@@ -33,7 +33,7 @@ router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
     const allNotifications = await Notification.find({toDietitian:req.dietitian._id }).sort({ createdAt: 1 });
 
 
-     res.json({allNotifications.message});
+     res.json(allNotifications);
 
      for(let i=0;i<allNotifications.length;i++){
       allNotifications[i].update({readfromDietitian:true});   
