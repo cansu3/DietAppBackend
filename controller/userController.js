@@ -18,16 +18,31 @@ const getAllUsers = async (req,res) => {
 const getUser =  async (req,res) => {
 
      try {
-      let findUser = await User.findOne({username : req.params.username});
-      res.json({gender:findUser.gender,
-        birthday:findUser.birthday.toDateString(),
-        weight:findUser.weight,
-        height:findUser.height,
-        medicine:findUser.medicine,
-        illness:findUser.illness,
-        username:findUser.username,
-        name:findUser.name,
-        surname:findUser.surname});
+      const findUser = await User.findOne({username : req.params.username});
+      if(findUser.birthday){
+
+        res.json({gender:findUser.gender,
+            birthday:findUser.birthday.toDateString(),
+            weight:findUser.weight,
+            height:findUser.height,
+            medicine:findUser.medicine,
+            illness:findUser.illness,
+            username:findUser.username,
+            name:findUser.name,
+            surname:findUser.surname});
+
+      }else{
+        res.json({gender:findUser.gender,
+            weight:findUser.weight,
+            height:findUser.height,
+            medicine:findUser.medicine,
+            illness:findUser.illness,
+            username:findUser.username,
+            name:findUser.name,
+            surname:findUser.surname});
+
+      }
+
       
      } catch (error) {
       console.log("Error occurred while finding user:"+error);   
