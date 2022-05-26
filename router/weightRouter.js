@@ -55,7 +55,7 @@ router.get('/', authMiddleware,  async (req,res,next) => {
                 sumweights=sumweights+weight;
                 counter ++;
                 weights.push(sumweights/counter);
-                months.push(allWeights[i].date.toLocaleString('default', { month: 'short' }));
+                months.push(allWeights[i].date.toLocaleString('en-US', { month: 'short' }));
                 sumweights2=sumweights/counter
                 counter=0;
                 sumweights=0;
@@ -74,7 +74,7 @@ router.get('/', authMiddleware,  async (req,res,next) => {
                     while (!((newDate.getMonth())===allWeights[i+1].date.getMonth())) {
 
                         weights.push(weight);
-                        months.push(newDate.toLocaleString('default', { month: 'short' }));
+                        months.push(newDate.toLocaleString('en-US', { month: 'short' }));
 
                         newDate.setMonth((parseInt(newDate.getMonth().toString())%12)+1);
                     }
@@ -83,7 +83,7 @@ router.get('/', authMiddleware,  async (req,res,next) => {
             }
             else if(sumweights2==0){
                 weights.push(weight);
-                months.push(allWeights[i].date.toLocaleString('default', { month: 'short' }));
+                months.push(allWeights[i].date.toLocaleString('en-US', { month: 'short' }));
             }
         }    
     } 
