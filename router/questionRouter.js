@@ -45,7 +45,9 @@ router.get('/NumberOfQuestion', authDietitianMiddleware, async (req,res,next) =>
     try {
         const findQuestions = await Question.find({to:req.dietitian._id, readQuestion : false});
 
-           res.json(findQuestions.length);
+        if(findQuestions.length!=0){
+            res.json(findQuestions.length);
+         }
         
         
         } catch (error) {
@@ -61,7 +63,9 @@ router.get('/NumberOfAnswer', authMiddleware, async (req,res,next) => {
     const findAnswers = await Question.find({sender:req.user._id, readAnswer : false});
     const number=0;
 
-       res.json(findAnswers.length);
+    if(findAnswers.length!=0){
+        res.json(findAnswers.length);
+     }
     
     } catch (error) {
         next(error);
