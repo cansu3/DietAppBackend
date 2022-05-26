@@ -53,7 +53,7 @@ router.get('/NumberOfDietitianNotification', authDietitianMiddleware, async (req
 try {
    const findNotifications = await Notification.find({toDietitian:req.dietitian._id, readfromDietitian : false});
   
-      res.json(findNotifications.length.toString);
+      res.json(findNotifications.length);
    
    } catch (error) {
        next(error);
@@ -67,7 +67,7 @@ router.get('/NumberOfUserNotification', authMiddleware, async (req,res,next) => 
    try {
       const findNotifications = await Notification.find({toUser:req.user._id, readfromUser : false});
 
-         res.json(findNotifications.length.toString);
+         res.json(findNotifications.length);
       
       } catch (error) {
           next(error);
