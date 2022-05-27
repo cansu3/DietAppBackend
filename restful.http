@@ -8,9 +8,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTE2NzU1MDEsImV4cCI6MTY1MTY5MzUwMX0.HvwUGVZDVsAEtwyo5HxhbO4EJpXhJ5lnerZo2khjfQU
 
 ###
-PATCH {{BASE_URL}}/api/dietLists/requestDietList/eee
+PATCH {{BASE_URL}}/api/dietLists/requestDietList/gonca
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTI1NDAzMDgsImV4cCI6MTY1MjU1ODMwOH0.wpbdnG4xjw_mAgfMqx8-mW942uXk_GJSxzZL72lBayo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM2NTQxMTMsImV4cCI6MTY1MzY5NzMxM30.e2Z6fwolp2LNhX8CaklWDhytiJKC5fiTKbT3-gIFuLI
 ###
 GET {{BASE_URL}}
 ###
@@ -29,7 +29,7 @@ Content-Type: application/json
 
 {
     "email":"delif@hotmail.com",
-    "password":"111"
+    "password":"123"
 
 }
 ###
@@ -51,8 +51,8 @@ GET {{BASE_URL}}/api/users/624b1639e0c25b5186f77c0e
 POST {{BASE_URL}}/api/dietitians
 Content-Type: application/json
 
-{   "username": "eee",
-    "email":"kerifgmmmn@hotmail.com",
+{   "username": "gonca",
+    "email":"gonca@hotmail.com",
     "password":"1451"
 }
 
@@ -62,7 +62,7 @@ POST {{BASE_URL}}/api/dietitians/login
 Content-Type: application/json
 
 {
-     "email":"kerifgmmmn@hotmail.com",
+     "email":"gonca@hotmail.com",
     "password":"1451"
 }
 ###
@@ -88,9 +88,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyM
 
 ###
 
-GET {{BASE_URL}}/api/users/me
+PATCH {{BASE_URL}}/api/users/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM1OTQwNjIsImV4cCI6MTY1MzYzNzI2Mn0.Rf4O9AXSZmhVT_JYE8kJyuDtgrIfarq19811HoyOEpo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM2MDY2MTUsImV4cCI6MTY1MzY0OTgxNX0.1wCJJVahh9VrudVlooTk3eQskQjHWgD3VUhApvlvUq0
+{
+   "password":"123"
+}
 
 ###
 
@@ -114,12 +117,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyM
 
 
 ###
-PATCH {{BASE_URL}}/api/dietitians/me
+PATCH {{BASE_URL}}/api/users/me
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTEzNDgwMDcsImV4cCI6MTY1MTM2NjAwN30.SZAhjNn3YNT8kuzxSdTaMHqyZYIbuLR0Vwrnr3YU-gE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM2MDY2MTUsImV4cCI6MTY1MzY0OTgxNX0.1wCJJVahh9VrudVlooTk3eQskQjHWgD3VUhApvlvUq0
 
 {
-    
+    "password":"123",
     "name":"6255huc",
     "surname":"hjj",
     "birthday": "2021-11-11"
@@ -154,7 +157,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0N
 ###
 GET {{BASE_URL}}/api/weights
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTIwMzM5NTgsImV4cCI6MTY1MjA1MTk1OH0.Rcwd3G6s8uCNWsCZNbwJpXUsmadiCIbHR1Bn1ADM0pM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM1OTQwNjIsImV4cCI6MTY1MzYzNzI2Mn0.Rf4O9AXSZmhVT_JYE8kJyuDtgrIfarq19811HoyOEpo
 
 ###
 
@@ -186,16 +189,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0N
 
 ###
 
-GET {{BASE_URL}}/api/notifications/NumberOfDietitianNotification
+GET {{BASE_URL}}/api/notifications/dietitianNotification
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyMDk3N2M5ZjA1NzI5NzQ2NGYiLCJlbWFpbCI6ImtlcmlmZ21tbW5AaG90bWFpbC5jb20iLCJpYXQiOjE2NTM1OTM1MjUsImV4cCI6MTY1MzYzNjcyNX0.Qm05TG2bNrUZUuRAfHBXg2aTA5mbSvzZ7dnaA3PCaFg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjkwYzIwMTQzZGRlNzU2YTcyYzZmMGIiLCJlbWFpbCI6ImdvbmNhQGhvdG1haWwuY29tIiwiaWF0IjoxNjUzNjU0MTQ1LCJleHAiOjE2NTM2OTczNDV9.I_7SF4wkiefnWrgSgpQ33pIm2nkOBRtYpXIvQzOcwVk
 
 ###
 
 
-GET {{BASE_URL}}/api/notifications/NumberOfUserNotification
+GET {{BASE_URL}}/api/notifications/userNotification
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM1OTQwNjIsImV4cCI6MTY1MzYzNzI2Mn0.Rf4O9AXSZmhVT_JYE8kJyuDtgrIfarq19811HoyOEpo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM2NTM4MzMsImV4cCI6MTY1MzY5NzAzM30.oGfujOm-rZ-07LuKnFKqQga3PMEkYjcK2JndeWxfi_8
 
 ###
 GET {{BASE_URL}}/api/questions/NumberOfQuestion
@@ -205,6 +208,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2ZDIyM
 GET {{BASE_URL}}/api/questions/NumberOfAnswer
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM1OTQwNjIsImV4cCI6MTY1MzYzNzI2Mn0.Rf4O9AXSZmhVT_JYE8kJyuDtgrIfarq19811HoyOEpo
+
+###
+GET {{BASE_URL}}/api/notifications/getUserNotifications
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY2Y2Q0NGE2NzYzOWZhODM3MGRlODYiLCJpYXQiOjE2NTM1OTQwNjIsImV4cCI6MTY1MzYzNzI2Mn0.Rf4O9AXSZmhVT_JYE8kJyuDtgrIfarq19811HoyOEpo
+
+###
+###
+GET {{BASE_URL}}/api/notifications/getDietitianNotifications
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjkwYzIwMTQzZGRlNzU2YTcyYzZmMGIiLCJlbWFpbCI6ImdvbmNhQGhvdG1haWwuY29tIiwiaWF0IjoxNjUzNjU0MTQ1LCJleHAiOjE2NTM2OTczNDV9.I_7SF4wkiefnWrgSgpQ33pIm2nkOBRtYpXIvQzOcwVk
+
+###
 
 
 
