@@ -53,11 +53,11 @@ router.get('/dietitianNotification', authDietitianMiddleware, async (req,res,nex
 try {
    const findNotifications = await Notification.find({toDietitian:req.dietitian._id, readfromDietitian : false});
     
-   if(findNotifications.length>0){
+  
       res.json(findNotifications.length);
  
    
-   }
+  
    } catch (error) {
        next(error);
        console.log("Error occurred while updating question:",error);
@@ -70,9 +70,9 @@ router.get('/userNotification', authMiddleware, async (req,res,next) => {
    try {
       const findNotifications = await Notification.find({toUser:req.user._id, readfromUser : false});
 
-      if(findNotifications.length>0){
+     
          res.json(findNotifications.length);
-      }
+  
       
       } catch (error) {
           next(error);
