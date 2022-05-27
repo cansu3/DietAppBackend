@@ -14,6 +14,19 @@ router.get('/:name', async (req,res) => {
     
  });
 
+ router.get('/', async (req,res) => {
+
+    try {
+     const findFoods = await food.find({});
+     res.json(findFoods);
+        
+    } catch (error) {
+     console.log("Error occurred while finding food:"+error);   
+        
+    }
+    
+ });
+
 
  
  router.post('/', async (req,res,next) => {
