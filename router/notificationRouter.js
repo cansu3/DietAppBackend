@@ -10,7 +10,7 @@ const authDietitianMiddleware = require('../middleware/authDietitianMiddleware')
 router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
 
     try {
-    const allNotifications = await Notification.find({toUser:req.user._id }).sort({ createdAt: 1 });
+    const allNotifications = await Notification.find({toUser:req.user._id }).sort({ createdAt: -1 });
 
 
      res.json(allNotifications);
@@ -30,7 +30,7 @@ router.get('/getUserNotifications', authMiddleware,  async (req,res,next) => {
  router.get('/getDietitianNotifications', authDietitianMiddleware,  async (req,res,next) => {
 
     try {
-    const allNotifications = await Notification.find({toDietitian:req.dietitian._id }).sort({ createdAt: 1 });
+    const allNotifications = await Notification.find({toDietitian:req.dietitian._id }).sort({ createdAt: -1 });
 
 
      res.json(allNotifications);

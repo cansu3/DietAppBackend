@@ -6,6 +6,9 @@ const bcrypt = require('bcrypt');
 const authDietitianMiddleware = require('../middleware/authDietitianMiddleware');
 const dietitianController= require('../controller/dietitianController');
 const jwt = require('jsonwebtoken');
+var CodeGenerator = require('node-code-generator');
+const nodemailer = require('nodemailer');
+const { error } = require('@hapi/joi/lib/base');
 
 router.get('/getDietitian/:username',dietitianController.getDietitian);
 
@@ -21,6 +24,81 @@ router.get('/', async (req,res) => {
        
    }
    
+});
+
+router.get('/forgotPassword/:email', async (req,res,next) => {
+    
+    try {
+        const findDietitian=await Dietitian.findOne({email:req.params.email});
+    
+
+        if (findDietitian) {
+
+             
+        var generator = new CodeGenerator();
+        var pattern = '#';
+        var howMany = 6;
+
+        var codes = generator.generateCodes(pattern, howMany);
+        var code=codes[0]+codes[1]+codes[2]+codes[3]+codes[4]+codes[5];
+        console.log(code);
+
+
+        let transporter= nodemailer.createTransport({
+            
+            host:'smtp.host.com',
+            port: '5000',
+            service:'gmail',
+            auth:{
+                user:'diettracker.00@gmail.com',
+                pass:'diettracker00.'
+            }
+        });
+
+        let mailOptions=({
+            from:'diettracker.00@gmail.com',
+            to:req.params.email,
+            subject:'Forgot Password',
+            text:'Hello, we have received the password reset instruction. Here is your one-time code: '+code+' You can login with this code and then update your password in the settings section.'
+        });
+
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+
+          const newCode=await bcrypt.hash(code,5);
+          console.log(newCode);
+          
+
+          const {error,value}=Dietitian.joiValidationforUpdate({password:newCode});
+          if (error) {
+              next(error);
+              
+          }
+
+          const result=await Dietitian.findByIdAndUpdate({_id : findDietitian._id},{password:newCode},{new:true});
+
+          if (result) {
+              res.json({message:"succesfull"});
+              
+          }
+
+            
+            
+        } else {
+            res.json({message:"error accured"})
+            
+        }
+      
+    } catch (error) {
+        next(error);
+        console.log("Error occurred while login:"+error);   
+    }
+    
 });
 
 router.get('/myUsers', authDietitianMiddleware, async (req,res,next) => {
