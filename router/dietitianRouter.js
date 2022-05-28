@@ -34,7 +34,7 @@ router.get('/myUsers', authDietitianMiddleware, async (req,res,next) => {
     for (let i in allLists) {
        const findUser=await User.findById({_id:allLists[i].user});
 
-        users.push(findUser.username);
+        users.push(findUser);
       }
           res.json(users);
           
