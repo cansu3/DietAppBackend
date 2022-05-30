@@ -127,13 +127,24 @@ router.get('/myUsers', authDietitianMiddleware, async (req,res,next) => {
 
 router.get('/me', authDietitianMiddleware, async (req,res,next) => {
     const findDietitian = await Dietitian.findById({_id : req.dietitian._id});
-    res.json({name:findDietitian.name,
+    if(findDietitian.birthday){
+      res.json({name:findDietitian.name,
         surname:findDietitian.surname,
         birthday:findDietitian.birthday.toDateString(),
         username:findDietitian.username,
         email:findDietitian.email,
         gender:findDietitian.gender,
-        bio:findDietitian.bio});
+        bio:findDietitian.bio});  
+    }else {
+        res.json({name:findDietitian.name,
+            surname:findDietitian.surname,
+            username:findDietitian.username,
+            email:findDietitian.email,
+            gender:findDietitian.gender,
+            bio:findDietitian.bio});
+
+    }
+    
    
 });
  
