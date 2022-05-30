@@ -7,23 +7,8 @@ const getDietitian =  async (req,res) => {
     try {
      const findDietitian = await Dietitian.findOne({username : req.params.username});
 
-     if(findDietitian.birthday){
-        res.json({name:findDietitian.name,
-                surname:findDietitian.surname,
-                birthday:findDietitian.birthday.toDateString(),
-                username:findDietitian.username,
-                email:findDietitian.email,
-                gender:findDietitian.gender,
-                bio:findDietitian.bio});
-
-     }else{
-        res.json({name:findDietitian.name,
-            surname:findDietitian.surname,
-            username:findDietitian.username,
-            email:findDietitian.email,
-            gender:findDietitian.gender,
-            bio:findDietitian.bio});
-     }
+   
+        res.json(findDietitian);
      
         
     } catch (error) {
