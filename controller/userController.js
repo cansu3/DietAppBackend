@@ -19,29 +19,7 @@ const getUser =  async (req,res) => {
 
      try {
       const findUser = await User.findOne({username : req.params.username});
-      if(findUser.birthday){
-
-        res.json({gender:findUser.gender,
-            birthday:findUser.birthday.toDateString(),
-            weight:findUser.weight,
-            height:findUser.height,
-            medicine:findUser.medicine,
-            illness:findUser.illness,
-            username:findUser.username,
-            name:findUser.name,
-            surname:findUser.surname});
-
-      }else{
-        res.json({gender:findUser.gender,
-            weight:findUser.weight,
-            height:findUser.height,
-            medicine:findUser.medicine,
-            illness:findUser.illness,
-            username:findUser.username,
-            name:findUser.name,
-            surname:findUser.surname});
-
-      }
+      res.json(findUser);
 
       
      } catch (error) {
@@ -54,30 +32,7 @@ const getUser =  async (req,res) => {
 const getMyProfileInfo = async (req,res,next) => {
     const findUser = await User.findById({_id : req.user._id});
    
-    if(findUser.birthday){
-
-        res.json({gender:findUser.gender,
-            birthday:findUser.birthday.toDateString(),
-            weight:findUser.weight,
-            height:findUser.height,
-            medicine:findUser.medicine,
-            illness:findUser.illness,
-            username:findUser.username,
-            name:findUser.name,
-            surname:findUser.surname});
-
-      }else{
-        res.json({gender:findUser.gender,
-            weight:findUser.weight,
-            height:findUser.height,
-            medicine:findUser.medicine,
-            illness:findUser.illness,
-            username:findUser.username,
-            name:findUser.name,
-            surname:findUser.surname});
-
-      }
-
+    res.json(findUser);
     
  };
 
