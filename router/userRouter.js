@@ -153,7 +153,7 @@ router.post('/', async (req,res,next) => {
            
        } else {
           const result = await saveUser.save(); 
-          res.json(result);
+          res.json({message:"Your account has been successfully created"});
        }
         
     } catch (error) {
