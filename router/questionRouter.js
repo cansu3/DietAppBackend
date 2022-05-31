@@ -10,15 +10,21 @@ const authDietitianMiddleware = require('../middleware/authDietitianMiddleware')
 router.post('/askQuestion', authMiddleware, async (req,res,next) => {
     try {
         const findDietList = await DietList.findOne({user:req.user._id});
-        const saveQuestion = new Question(req.body);
+        if(findDietList.dietitian){
+         const saveQuestion = new Question(req.body);
         saveQuestion.sender=req.user._id;
         saveQuestion.to=findDietList.dietitian;
         const result = await saveQuestion.save(); 
-        res.json(saveQuestion);   
+        res.json({message:"Your message has been sent"});    
+        }else {
+            res.json({message:"You do not have a dietitian"}); 
+        }
+          
         
     } catch (error) {
         next(error);
-        console.log("Error occurred while adding question:"+error);   
+        console.log("Error occurred while adding question:"+error);
+        res.json({message:"You do not have a dietitian"});    
     }
     
     
@@ -98,9 +104,9 @@ router.patch('/answerQuestion/:id', authDietitianMiddleware, async (req,res,next
     const result2=await Question.findByIdAndUpdate({_id : updateQuestion._id},{readAnswer:false},{new:true});
     
     if (result && result2) {
-        return res.json( {message: "Request successfull"});
+        return res.json( {message: "Your message has been sent"});
     } else {
-        return res.status().json({message: "Request failed"});
+        return res.status().json({message: "An error accured while sending yor message"});
     }
     } catch (error) {
         next(error);
