@@ -16,14 +16,11 @@ router.post('/askQuestion', authMiddleware, async (req,res,next) => {
         saveQuestion.to=findDietList.dietitian;
         const result = await saveQuestion.save(); 
         res.json({message:"Your message has been sent"});    
-        }else {
-            res.json({message:"You do not have a dietitian"}); 
         }
-          
         
     } catch (error) {
-        next(error);
-        console.log("Error occurred while adding question:"+error);
+       // next(error);
+        //console.log("Error occurred while adding question:"+error);
         res.json({message:"You do not have a dietitian"});    
     }
     
@@ -109,8 +106,10 @@ router.patch('/answerQuestion/:id', authDietitianMiddleware, async (req,res,next
         return res.status().json({message: "An error accured while sending yor message"});
     }
     } catch (error) {
-        next(error);
-        console.log("Error occurred while updating question:",error);
+        return res.status().json({message: "An error accured while sending yor message"});
+       // next(error);
+       // console.log("Error occurred while updating question:",error);
+
     }
 
 }); 
